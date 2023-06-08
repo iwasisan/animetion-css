@@ -81,11 +81,14 @@ header{
 
   picture{
     width: 345px;
+    position: relative;
   }
 
   .pc{
     @media screen and (max-width:1224px) {
       display: none;
+      position: relative;
+      z-index: 20;
     }
   }
 
@@ -94,6 +97,7 @@ header{
     position: relative;
     bottom: 30px;
     display: none;
+    z-index: 20;
 
     @media screen and (max-width:1224px) {
       display: block;
@@ -110,7 +114,6 @@ header{
 
 #header-navi{
   position: relative;
-  z-index: 100;
   ul{
     background-color: #ffffff;
     padding: 17px 34px;
@@ -255,8 +258,8 @@ $tab: 750px;
   border-radius: 10px;
   background-color: #ffffff;
   margin-left: 120px;
-  position: relative;
-  top: 593px;
+  position: absolute;
+  top: 728px;
   z-index: 9;
 }
 
@@ -266,6 +269,23 @@ $tab: 750px;
   font-weight: 700;
   font-family: $font;
   transform: skewX(-10deg);
+  margin-left: 120px;
+  position: absolute;
+  top: 653px;
+}
+
+// 最初の文字はアニメーションネーム
+.fadein{
+  animation: fadein 3s infinite;
+  }
+
+@keyframes fadein{
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 
@@ -278,6 +298,8 @@ $tab: 750px;
 
 
   hgroup{
+    position: relative;
+    top: -90px;
     width: 50%;
     z-index: 100;
 // 金融を、もっと面白く
@@ -328,6 +350,27 @@ $tab: 750px;
 }
 
 $color-black:#1b1b1b;
+
+.site-title{
+  hgroup{
+    &:hover{
+      // slideinという名前のアニメーションを3回繰り返す。
+      animation: slidein 3s 3;
+    }
+
+    @keyframes slidein {
+      from{
+        transform:translateX(0px);
+      }
+
+      to{
+        transform: translateX(100px);
+      }
+    }
+  }
+}
+
+
 
 // メディアクエリ
 $tab: 750px;
@@ -799,7 +842,28 @@ $color-red:rgb(201, 55, 74);
   column-gap: 30px;
   position: relative;
   top: -130px;
-}
+
+  .loader{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 6px;
+  border-color: #028ae4 #faebe4 #faebe4;
+  position: absolute;
+  margin: 12px 160px 0 0;
+  z-index: 30;
+
+  &:hover{
+    animation: spin 1s infinite linear;
+  }
+    @keyframes spin {
+      to{
+      transform: rotate(360deg);
+        } 
+      }
+    }
+  }
+
 
 .info-title{
   #info-red{
