@@ -1881,6 +1881,7 @@ grid-div, .grid-9 dl, .grid-8 dl, .grid-7 dl, .grid-6 dl, .grid-5 dl, .grid-4 dl
   display: flex;
   -moz-column-gap: 50px;
        column-gap: 50px;
+  justify-content: flex-end;
 }
 
 .foot-top-left {
@@ -2376,9 +2377,65 @@ footer {
 }
 
 @media (max-width: 750px) {
-  .copy {
+  .foot-top-right .copy {
     position: relative;
     bottom: 30px;
     font-size: 14px;
   }
+}
+
+.site-title figure {
+  animation-name: flipLeftAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  perspective-origin: left center;
+  opacity: 0;
+}
+@keyframes flipLeftAnime {
+  from {
+    transform: perspective(600px) translate3d(0, 0, 0) rotateY(30deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.now-price {
+  animation: fadeInAnime 3s 0.5s 1;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease;
+  animation-direction: normal;
+}
+@keyframes fadeInAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.news-sec {
+  animation: fadeUp 1s forwards;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.news-sec .topic-1, .news-sec .topic-2, .news-sec .topic-3 {
+  animation-duration: 0.5s;
+}
+.news-sec .topic-2 {
+  animation-duration: 1s;
+}
+.news-sec .topic-3 {
+  animation-duration: 1.5s;
 }/*# sourceMappingURL=style.css.map */

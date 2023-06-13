@@ -2179,6 +2179,7 @@ $middl:880px;
 .foot-top-right{
   display: flex;
   column-gap: 50px;
+  justify-content: flex-end;
 }
 
 .foot-top-left{
@@ -2747,7 +2748,7 @@ footer{
   }
 }
 
-
+.foot-top-right
 .copy{
   @include table(){
     position: relative;
@@ -2755,3 +2756,75 @@ footer{
     font-size: 14px;
   }
 }
+
+
+.site-title figure{
+  animation-name: flipLeftAnime;
+animation-duration:1s;
+animation-fill-mode:forwards;
+perspective-origin: left center;
+opacity:0;
+
+@keyframes flipLeftAnime{
+  from {
+  transform: perspective(600px) translate3d(0, 0, 0) rotateY(30deg);
+  opacity: 0;
+  }
+
+  to {
+  transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+  opacity: 1;
+  }
+}
+}
+
+// name,かかる時間、ディレイタイム、繰り返す回数は纏めてる
+// ラストの状態
+// 道中の進み方
+// 動きに対する掛かる時間とか進行
+.now-price{
+    animation:fadeInAnime 3s 0.5s 1;
+    animation-fill-mode:backwards;
+    animation-timing-function:ease;
+    animation-direction:normal;
+
+  // 動きの中身
+  @keyframes fadeInAnime {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+}
+
+.news-sec{
+  dl{
+    
+  }
+  // アニメーション共通進行
+  animation: fadeUp 1s forwards;
+  // 動きの設定
+  @keyframes fadeUp {
+    from{
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  // アニメーション個別進行
+  .topic-1{
+    animation-duration: 0.5s;
+  }
+  .topic-2{
+    animation-duration: 1s;
+  }
+  .topic-3{
+    animation-duration: 1.5s;
+  }
+}
+
